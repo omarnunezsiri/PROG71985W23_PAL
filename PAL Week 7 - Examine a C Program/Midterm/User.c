@@ -6,8 +6,6 @@
 // revision history
 // 1.0			2023-02-20		initial
 
-#define _CRT_SECURE_NO_WARNINGS
-
 #include "User.h"
 #include <string.h>
 
@@ -16,10 +14,17 @@ USER CreateUser(int id, char username[], char password[], char DOB[])
 	USER user;
 
 	user.id = id;
+
+#ifdef _WIN32
+	strcpy_s(user.username, MAXSTR, username);
+	strcpy_s(user.password, MAXSTR, password);
+	strcpy_s(user.DOB, MAXSTR, DOB);
+#else
 	strcpy(user.username, username);
 	strcpy(user.password, password);
 	strcpy(user.DOB, DOB);
-
+#endif
+	
 	return user;
 }
 
