@@ -33,16 +33,22 @@ void DisplayClient(CLIENT thisClient)
 	}
 }
 
+// Pass by Reference and Value
+// void Foo(int*)
+// Foo(&<variable)
+// 
+// void Foo(int)
+// Foo(variable)
 void AddNewUser(CLIENT* thisClient, USER newUser)
 {
-	thisClient->users[thisClient->currentIndex] = newUser;
-	thisClient->currentIndex++;
+	thisClient->users[thisClient->currentIndex] = newUser; // modifying the collection of users
+	thisClient->currentIndex++; // currentIndex will be modified
 }
 
 void StreamWriteClient(CLIENT thisClient, char filename[])
 {
 	FILE* fp = fopen(filename, "w");
-	if (!fp)
+	if (!fp) // file doesn't exist or is corrupted
 	{
 		fprintf(stderr, "Error opening %s. Exiting...\n", filename);
 		exit(1);
@@ -52,12 +58,12 @@ void StreamWriteClient(CLIENT thisClient, char filename[])
 		fprintf(fp, "%d\n", thisClient.id);
 		fprintf(fp, "%d\n", thisClient.currentIndex);
 
-		for (int i = 0; i < thisClient.currentIndex; i++)
+		for (int i = 0; i < thisClient.currentIndex; i++) // looping through the collection of users
 		{
 			StreamWriteUser(thisClient.users[i], fp);
 		}
 
-		fclose(fp);
+		fclose(fp); // don't forget to close your files!
 	}
 }
 
@@ -65,7 +71,7 @@ CLIENT StreamReadClient(char filename[])
 {
 	CLIENT newClient;
 
-	FILE* fp = fopen(filename, "r");
+	FILE* fp = fopen(filename, "r"); // this doesn't create the file
 	if (!fp)
 	{
 		fprintf(stderr, "Error opening %s. Exiting...\n", filename);

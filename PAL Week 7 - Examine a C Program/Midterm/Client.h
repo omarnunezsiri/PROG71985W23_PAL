@@ -14,11 +14,11 @@
 typedef struct Client {
 	int id;
 	int currentIndex;
-	USER users[MAXUSERS];
+	USER users[MAXUSERS]; // reusing the USER struct
 }CLIENT;
 
-CLIENT CreateClient(int);
-void DisplayClient(CLIENT);
-void AddNewUser(CLIENT*, USER);
-void StreamWriteClient(CLIENT, char[]);
-CLIENT StreamReadClient(char[]);
+CLIENT CreateClient(int); // creates a client
+void DisplayClient(CLIENT); // displays a client
+void AddNewUser(CLIENT*, USER); // adds a new user
+void StreamWriteClient(CLIENT, char[]); // writes a client to a file
+CLIENT StreamReadClient(char[]); // reads a client from a file

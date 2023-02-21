@@ -6,7 +6,7 @@
 // revision history
 // 1.0			2023-02-20		initial
 
-#include <stdio.h>
+#include <stdio.h> // standard input and output streams (stdin, stdout)
 #include "Client.h"
 
 #define DATAFILE "client.txt"

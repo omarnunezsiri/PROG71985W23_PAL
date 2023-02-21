@@ -18,8 +18,8 @@ typedef struct User
 	char DOB[MAXSTR];
 }USER;
 
-USER CreateUser(int, char[], char[], char[]);
-void DisplayUser(USER);
-void StreamWriteUser(USER, FILE*);
-void removeTrailingNewLine(char*);
-USER StreamReadUser(FILE*);
+USER CreateUser(int, char[], char[], char[]); // creating a user
+void DisplayUser(USER); // displaying a user
+void StreamWriteUser(USER, FILE*); // writing a user to a file
+void removeTrailingNewLine(char*); // removing '\n'
+USER StreamReadUser(FILE*); // reading a user from a file

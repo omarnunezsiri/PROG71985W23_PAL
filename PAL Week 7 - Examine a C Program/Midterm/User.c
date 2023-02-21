@@ -15,7 +15,7 @@ USER CreateUser(int id, char username[], char password[], char DOB[])
 
 	user.id = id;
 
-#ifdef _WIN32
+#ifdef _WIN32 // Preprocessor directives
 	strcpy_s(user.username, MAXSTR, username);
 	strcpy_s(user.password, MAXSTR, password);
 	strcpy_s(user.DOB, MAXSTR, DOB);
@@ -48,7 +48,7 @@ void StreamWriteUser(USER thisUser, FILE* fp)
 void removeTrailingNewLine(char* buffer)
 {
 	for (int i = 0; i < strlen(buffer); i++)
-		if (buffer[i] == '\n')
+		if (buffer[i] == '\n') 
 			buffer[i] = '\0';
 }
 
@@ -59,9 +59,9 @@ USER StreamReadUser(FILE* fp)
 	char password[MAXSTR];
 	char DOB[MAXSTR];
 
-	fscanf_s(fp, "%d\n", &id);
+	fscanf_s(fp, "%d\n", &id); // fscanf is better for integers, doubles
 
-	fgets(username, MAXSTR, fp);
+	fgets(username, MAXSTR, fp); // fgets is better for strings -> omar nunez
 
 	fgets(password, MAXSTR, fp);
 
