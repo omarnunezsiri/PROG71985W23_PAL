@@ -17,7 +17,7 @@ int main(int argc, char* argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	// research! what is atoi?
+	// research! what is atoi? converts a string (array of characters) to a integer
 	int loopStart = atoi(argv[1]);
 	int loopEnd = atoi(argv[2]);
 	
