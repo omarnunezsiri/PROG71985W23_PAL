@@ -1,4 +1,4 @@
-// PAL Week 9 - Examine a C Program - using all 3 common standard streams
+// PAL Week 9 - Examine a C Program - reading a Data ADT from a file
 // 
 // PROG71985-W23
 // Omar Nunez Siri
