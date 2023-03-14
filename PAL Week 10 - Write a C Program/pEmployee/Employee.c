@@ -4,8 +4,7 @@
 // 
 // revision history
 // 1.0			2023-03-13		initial
-
-#define _CRT_SECURE_NO_WARNINGS
+// 1.1			2023-03-14		refactored 
 
 #include <stdio.h>
 #include <stdlib.h> // exit() functionality
@@ -22,51 +21,48 @@ void removeTrailingNewLine(char* buffer)
 			buffer[i] = '\0';
 }
 
-void ReadEmployee(EMPLOYEE* e, char* filename)
+void loadEmployeeFromFile(EMPLOYEE* e, char* filename)
 {
+	FILE* fp = fopen(filename, "r");
+
+	if (!fp) // if something went wrong
+	{
+		fprintf(stderr, "Unable to open %s.\n", filename);
+		exit(EXIT_FAILURE);
+	}
+
+	// Read employee data
 	char id[MAXSTR];
 	char firstName[MAXSTR];
 	char lastName[MAXSTR];
 	int eAccess;
 	double wage;
 
-	FILE* fp = fopen(filename, "r");
+	// Reads the id
+	fgets(id, MAXSTR, fp);
+	removeTrailingNewLine(id);
 
-	if (fp)
-	{
-		// Read employee data
+	// Reads the first name
+    fgets(firstName, MAXSTR, fp);
+    removeTrailingNewLine(firstName);
 
-		// Reads the id
-		fgets(id, MAXSTR, fp);
-		removeTrailingNewLine(id);
+	// Reads the last name
+	fgets(lastName, MAXSTR, fp);
+	removeTrailingNewLine(lastName);
 
-		// Reads the first name
-        fgets(firstName, MAXSTR, fp);
-        removeTrailingNewLine(firstName);
+	// Reads the eAccess
+	fscanf_s(fp, "%d\n", &eAccess);
 
-		// Reads the last name
-		fgets(lastName, MAXSTR, fp);
-		removeTrailingNewLine(lastName);
-
-		// Reads the eAccess
-		fscanf(fp, "%d\n", &eAccess);
-
-		// Reads the wage
-        fscanf(fp, "%lf\n", &wage);
+	// Reads the wage
+    fscanf_s(fp, "%lf\n", &wage);
 
 
-		// Edit employee through pointer. We will refactor this code during the next session!
-		strcpy(e->id, id);
-		strcpy(e->firstName, firstName);
-		strcpy(e->lastName, lastName);
-		e->eAccess = eAccess;
-		e->wage = wage;
+	// Edit employee through pointer. We will refactor this code during the next session!
+	strcpy(e->id, id);
+	strcpy(e->firstName, firstName);
+	strcpy(e->lastName, lastName);
+	e->eAccess = eAccess;
+	e->wage = wage;
 
-		fclose(fp);
-	}
-	else
-	{
-		fprintf(stderr, "Unable to open %s.\n", filename);
-		exit(EXIT_FAILURE);
-	}
+	fclose(fp); // don't forget to close your files!
 }

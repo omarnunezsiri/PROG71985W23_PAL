@@ -4,6 +4,7 @@
 // 
 // revision history
 // 1.0			2023-03-13		initial
+// 1.1			2023-03-14		refactored 
 
 #pragma once
 
@@ -22,4 +23,20 @@ typedef struct Employee
 }EMPLOYEE;
 
 /* Placeholder header file. Write your code here! */
-void ReadEmployee(EMPLOYEE*, char*);
+void loadEmployeeFromFile(EMPLOYEE*, char*);
+
+/* Prep function definitions for tuesday's session */
+void setEmployeeId(EMPLOYEE*);
+void setEmployeeFirstName(EMPLOYEE*);
+void setEmployeeLastName(EMPLOYEE*);
+void setEmployeeEAccess(EMPLOYEE*);
+void setEmployeeWage(EMPLOYEE*);
+
+char* getEmployeeId(EMPLOYEE);
+char* getEmployeeFirstName(EMPLOYEE);
+char* getEmployeeLastName(EMPLOYEE);
+int getEmployeeEAccess(EMPLOYEE);
+double getEmployeeWage(EMPLOYEE);
+
+void saveEmployeeToFile(EMPLOYEE, char*);
+void displayEmployee(EMPLOYEE);
