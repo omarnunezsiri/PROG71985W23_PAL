@@ -26,11 +26,11 @@ typedef struct Employee
 void loadEmployeeFromFile(EMPLOYEE*, char*);
 
 /* Prep function definitions for tuesday's session */
-void setEmployeeId(EMPLOYEE*);
-void setEmployeeFirstName(EMPLOYEE*);
-void setEmployeeLastName(EMPLOYEE*);
-void setEmployeeEAccess(EMPLOYEE*);
-void setEmployeeWage(EMPLOYEE*);
+void setEmployeeId(EMPLOYEE*, char*);
+void setEmployeeFirstName(EMPLOYEE*, char*);
+void setEmployeeLastName(EMPLOYEE*, char*);
+void setEmployeeEAccess(EMPLOYEE*, int);
+void setEmployeeWage(EMPLOYEE*, double);
 
 char* getEmployeeId(EMPLOYEE);
 char* getEmployeeFirstName(EMPLOYEE);

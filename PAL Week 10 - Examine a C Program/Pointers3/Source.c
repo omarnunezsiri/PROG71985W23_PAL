@@ -1,3 +1,11 @@
+// PAL Week 10 - Examine a C Program - Reviewing pointers using floats
+// 
+// PROG71985-W23
+// 
+// revision history
+// 1.0			2023-03-13		initial
+
+
 #include <stdio.h>
 
 int main(void)
