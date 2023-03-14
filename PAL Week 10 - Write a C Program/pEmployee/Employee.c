@@ -6,6 +6,8 @@
 // 1.0			2023-03-13		initial
 // 1.1			2023-03-14		refactored 
 
+#define _CRT_SECURE_NO_WARNINGS 
+
 #include <stdio.h>
 #include <stdlib.h> // exit() functionality
 #include <string.h>
