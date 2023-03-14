@@ -1,3 +1,10 @@
+// PAL Week 10 - Write a C Program - Employee ADT implementation
+// 
+// PROG71985-W23
+// 
+// revision history
+// 1.0			2023-03-13		initial
+
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
